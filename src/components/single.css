@@ -1,0 +1,57 @@
+.card_content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 200px;
+    margin: 5px 0;
+    border-radius: 10px;
+    /* background-color: #212931; */
+    padding: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card_content:hover {
+    background-color: rgb(58, 6, 107);
+}
+
+@media (max-width: 550px) {
+    .card_content {
+        width: 46%;
+    }
+}
+
+.image {
+    border-radius: 10px;
+}
+
+.comprarTicket {
+    background-color: blueviolet;
+
+}
+
+.comprarTicket:hover {
+    background-color: rgb(58, 6, 107);
+
+}
+
+.title {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 17px;
+    padding: 8px 0;
+    /* font-weight: bold; */
+}
+
+.cast {
+    display: flex;
+    flex-direction: column;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.cast_img {
+    border-radius: 10px;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 5px black;
+}
