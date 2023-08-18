@@ -24,34 +24,12 @@
     border-radius: 10px;
 }
 
-.comprarTicket {
-    background-color: blueviolet;
-
-}
-
-.comprarTicket:hover {
-    background-color: rgb(58, 6, 107);
-
-}
 
 .title {
     width: 100%;
-    display: block;
-    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 17px;
     padding: 8px 0;
-    /* font-weight: bold; */
-}
-
-.cast {
-    display: flex;
-    flex-direction: column;
-    object-fit: contain;
-    padding: 10px;
-}
-
-.cast_img {
-    border-radius: 10px;
-    margin-bottom: 5px;
-    box-shadow: 0px 0px 5px black;
 }

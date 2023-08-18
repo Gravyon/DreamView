@@ -6,14 +6,37 @@ import {
 } from "react-router-dom";
 import './index.css'
 import Home from './pages/Home';
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { darkTheme } from './pages/Home';
+import ReviewForm from './components/ReviewForm';
+import Default from './layouts/Default';
+import Movies from './pages/Movies';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Default />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/",
+        element: <Movies />
+      }
+    ]
   },
+  , {
+    path: "/review",
+    element: <Default />,
+    children: [
+      {
+        path: "/review",
+        element: <ReviewForm />
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -6,8 +6,9 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import { img_500, unavailableLandscape, unavailable } from "../config/config";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import StarIcon from '@mui/icons-material/Star';
 import "./modal.css";
-// import Carousel from "./Carousel";
+import { Badge } from "@mui/material";
 
 const style = {
     modal: {
@@ -19,13 +20,13 @@ const style = {
         width: "90%",
         height: "80%",
         bgcolor: "background.paper",
-        border: "1px solid #282c34",
+        border: "1px solid #554F95",
         boxShadow: 24,
         p: 4,
     },
 };
 
-export default function TransitionsModal({ children, media_type, id }) {
+export default function TransitionsModal({ children, id }) {
     const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -35,20 +36,18 @@ export default function TransitionsModal({ children, media_type, id }) {
 
     const fetchData = async () => {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${VITE_APP_API_KEY}&language=en-US`
+            `https://api.themoviedb.org/3/movie/${id}?api_key=${VITE_APP_API_KEY}&language=en-US`
         );
-        // console.log(response.data);
+        console.log(response.data);
         setContent(response.data);
-        // console.log(content);
+        console.log(content);
     };
 
     const fetchVideo = async () => {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${VITE_APP_API_KEY}&language=en-US`
+            `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${VITE_APP_API_KEY}&language=en-US`
         );
-        // console.log(response.data);
         setVideo(response.data.results[0]?.key);
-        // console.log(data.total_pages);
     };
 
     useEffect(() => {
@@ -77,6 +76,12 @@ export default function TransitionsModal({ children, media_type, id }) {
                 <Fade in={open}>
                     {content && (
                         <Box sx={style.paper}>
+                            <Badge
+                                badgeContent={
+                                    content.vote_average > 0 ? `${content.vote_average.toString().slice(0, 3)}/10` : "1"
+                                }
+                                color={content.vote_average >= 6 ? "success" : "secondary"}
+                            />
                             <div className="modal">
                                 <img
                                     alt={content.name || content.title}
@@ -91,9 +96,9 @@ export default function TransitionsModal({ children, media_type, id }) {
                                     alt={content.name || content.title}
                                     className="modal_landscape"
                                     src={
-                                        content.backdrop_path
-                                            ? `${img_500}/${content.backdrop_path}`
-                                            : unavailableLandscape
+                                        content.poster_path
+                                            ? `${img_500}/${content.poster_path}`
+                                            : unavailable
                                     }
                                 />
                                 <div className="modal_about">
@@ -104,31 +109,25 @@ export default function TransitionsModal({ children, media_type, id }) {
                                             .slice(0, 4)}
                                         )
                                     </div>
-                                    {content.tagline && (
-                                        <i className="tagline">{content.tagline}</i>
-                                    )}
                                     <div className="modal_description">{content.overview}</div>
-                                    <div>
-                                        {/* <Carousel media_type={media_type} id={id} /> */}
-                                    </div>
-                                    <div style={{ justifyContent: "space-between" }}>                                    <Button
+                                    <Button
                                         variant="contained"
                                         startIcon={<YouTubeIcon />}
-                                        color="secondary"
+                                        style={{ marginTop: "5px", backgroundColor: '#554F95' }}
                                         target="__blank"
                                         href={`https://www.youtube.com/watch?v=${video}`}
                                     >
                                         Ver trailer
                                     </Button>
-                                        <Button
-                                            variant="contained"
-                                            startIcon={<YouTubeIcon />}
-                                            color="secondary"
-                                            target="__blank"
-                                            href={`https://www.youtube.com/watch?v=${video}`}
-                                        >
-                                            Comprar ticket
-                                        </Button></div>
+                                    <Button
+                                        variant="contained"
+                                        startIcon={<StarIcon />}
+                                        style={{ marginTop: "5px", backgroundColor: '#554F95' }}
+                                        href="/review"
+                                    >
+                                        Dejar resena
+                                    </Button>
+
                                 </div>
                             </div>
                         </Box>

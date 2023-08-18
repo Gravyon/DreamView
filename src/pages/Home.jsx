@@ -1,7 +1,5 @@
 import Navbar from "../components/Navbar";
-import Single from "../components/Single";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme } from "@mui/material/styles";
 import Movies from "./Movies";
 
 export const darkTheme = createTheme({
@@ -13,15 +11,9 @@ export const darkTheme = createTheme({
     },
 });
 
-export const lightTheme = createTheme({
-    palette: {
-        mode: "light",
-    },
-});
 const Home = () => {
     return (
         <div className="home" >
-            <Navbar />
             <Movies />
         </div>
     )

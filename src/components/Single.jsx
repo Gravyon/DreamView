@@ -1,21 +1,14 @@
 import Card from "react-bootstrap/Card";
 import { img_300, unavailable, img_500 } from "../config/config";
 import "./single.css";
-import { Badge, Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import TransitionsModal from "./TransitionsModal";
 
-const Single = ({ id, poster, title, date, media_type, vote_average }) => {
+const Single = ({ id, poster, title }) => {
   return (
-    <TransitionsModal media_type={media_type} id={id} key={id}>
-      {/* <Badge
-        badgeContent={
-          vote_average > 0 ? vote_average.toString().slice(0, 3) : "1"
-        }
-        color={vote_average >= 6 ? "success" : "secondary"}
-      /> */}
+    <TransitionsModal id={id} key={id}>
       <Card.Body>
-        <Typography >{title}</Typography>
-        {/* <Card.Subtitle className="overview">{overview}</Card.Subtitle> */}
+        <Typography className="title">{title}</Typography>
       </Card.Body>
       <img
         variant="top"
@@ -23,7 +16,6 @@ const Single = ({ id, poster, title, date, media_type, vote_average }) => {
         alt={title}
         src={poster ? `${img_300}/${poster}` : unavailable}
       />
-      <Button className="comprarTicket">Comprar ticket</Button>
 
     </TransitionsModal>
   );

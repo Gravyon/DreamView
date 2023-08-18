@@ -5,11 +5,9 @@ import axios from "axios";
 import "./styles.css";
 const Movies = () => {
     const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
-    const [genres, setGenres] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
-    const [numOfPages, setNumOfPages] = useState();
     const genreforURL = useGenre(selectedGenres);
 
     const getMovies = async () => {
@@ -18,7 +16,6 @@ const Movies = () => {
         );
         setContent(response.data.results);
         console.log(content);
-        // console.log(data.total_pages);
     };
 
     useEffect(() => {
@@ -36,6 +33,7 @@ const Movies = () => {
                         id={single.id}
                         poster={single.poster_path}
                         title={single.title}
+                        media_type={single.media_type}
                         date={single.release_date}
                         vote_average={single.vote_average}
                     />
