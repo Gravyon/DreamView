@@ -27,6 +27,15 @@ const style = {
   },
 };
 
+const handlePrev = () => {
+    // Handle moving to the previous item here
+  };
+
+  const handleNext = () => {
+    // Handle moving to the next item here
+  };
+
+
 export default function TransitionsModal({ children, id }) {
   const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
   const [open, setOpen] = useState(false);
@@ -93,6 +102,28 @@ export default function TransitionsModal({ children, id }) {
                       : unavailable
                   }
                 />
+                            <div style={{ display: "flex", justifyContent: "center" }}>
+                  {/* Left arrow button */}
+                  <Button
+                    onClick={handlePrev}
+                    sx={{
+                      backgroundColor: "#554F95",
+                      margin: "0 10px",
+                    }}
+                  >
+                    ←
+                  </Button>
+                  {/* Right arrow button */}
+                  <Button
+                    onClick={handleNext}
+                    sx={{
+                      backgroundColor: "#554F95",
+                      margin: "0 10px",
+                    }}
+                  >
+                    →
+                  </Button>
+                  </div>
                 <img
                   alt={content.name || content.title}
                   className="modal_landscape"
