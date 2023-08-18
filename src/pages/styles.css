@@ -1,43 +1,41 @@
 .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 10px;
 }
 
 /* Targets the rendered component after material ui is rendered */
 .MuiTabs-flexContainer {
-    display: flex;
-    justify-content: center;
-    /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .home {
-    min-height: 100vh;
-    background-color: #1c1e24;
-    color: white;
-
-
+  min-height: 100vh;
+  background-color: #1c1e24;
+  color: white;
 }
 
 @media (max-width: 700px) {
-    .app {
-        padding-top: 90px
-    }
+  .app {
+    padding-top: 90px;
+  }
 }
 
 .pageTitle {
-    display: flex;
-    font-family: "Montserrat", sans-serif;
-    font-size: 2vw;
-    padding: 4px;
-    border-radius: 50px;
-    color: white
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2vw;
+  padding: 4px;
+  border-radius: 50px;
+  color: white;
 }
 
 @media (max-width: 1000px) {
-    .pageTitle {
-        font-size: 6.4vw;
-        /* padding-top: 25px; */
-    }
+  .pageTitle {
+    font-size: 6.4vw;
+    padding-top: 25px;
+  }
 }
