@@ -87,7 +87,7 @@ const ReviewForm = () => {
               variant="h5"
               gutterBottom
             >
-              Deja tu opinion
+              Deja tu opinión
             </Typography>
             <TextField
               label="Pelicula"
