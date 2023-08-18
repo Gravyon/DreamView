@@ -3,6 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 const Navbar = () => {
   return (
@@ -12,7 +13,9 @@ const Navbar = () => {
     >
       <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <img src="logo.png" alt="Logo" />
+          <Link to={"/"}>
+            <img style={{ width: "45px" }} src="./logo.png" alt="Logo" />
+          </Link>
         </div>
         <div
           style={{ display: "flex", alignItems: "center", margin: "0 10px" }}
